@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Formulario</h1>
+
+    <form action="">
+
+        <input type="number" name="" id="a">
+        <br>
+        <input type="number" name="" id="b">
+        <br>
+        <input type="button" value="sumar" onclick="suma()">
+
+        <p id="resultado"></p>
+    </form>
+
+
+
+    <form name=fcolores>
+        <input type="Radio" name="colorin" value="ffffff" checked> Blanco
+        <br>
+        <input type="Radio" name="colorin" value="ff0000"> Rojo
+        <br>
+        <input type="Radio" name="colorin" value="00ff00"> Verde
+        <br>
+        <input type="Radio" name="colorin" value="0000ff"> Azul
+        <br>
+        <input type="Radio" name="colorin" value="ffff00"> Amarillo
+        <br>
+        <input type="Radio" name="colorin" value="00ff00"> Turquesa
+        <br>
+        <input type="Radio" name="colorin" value="ff00ff"> Morado
+        <br>
+        <input type="Radio" name="colorin" value="000000"> Negro
+        <br>
+        <br>
+        <input type="Button" name="" value="Cambia Color" onclick="cambiaColor()">
+
+    </form>
+    <form action="" id="" name="fdate">
+        
+
+        <input type="radio" name="sexo" value="masculino" checked> masculino
+        <input type="radio" name="sexo" value="femenino"> femenino
+        <input type="radio" name="sexo" value="otros"> otros
+        <br>
+        <input type="button" value="seleccione" onclick="validarSexo()">
+
+    </form>
+
+    <form name="fomul">
+        Valoración sobre este web:
+        <select name="miSelect" id="sel">
+            <option value="10">Muy bien
+            <option value="5" selected>Regular
+            <option value="0">Muy mal
+        </select>
+        <br>
+        <input type="date" name="" id="dat">
+        <br>
+        <input type=button value="Dime propiedades" onclick="dimePropiedades()">
+    </form>
+
+
+    <script>
+
+        function dimePropiedades() {
+
+            alert(document.getElementById("dat").value);
+            /* Para obtener el valor */
+            var cod = document.getElementById("sel").value;
+            alert(cod);
+
+            /* Para obtener el texto */
+            var combo = document.getElementById("sel");
+            var selected = combo.options[combo.selectedIndex].text;
+            alert(selected);
+        }
+
+        function validarSexo() {
+            var i;
+            for (i = 0; document.fdate.sexo.length; i++) {
+                if (document.fdate.sexo[i].checked)
+                    break;
+            }
+            // alert(document.fdate.sexo[i].value);
+            document.getElementById("resultado").innerHTML = document.fdate.sexo[i].value;
+
+        }
+
+        function cambiaColor() {
+            var i
+            for (i = 0; i < document.fcolores.colorin.length; i++) {
+                if (document.fcolores.colorin[i].checked)
+                    break;
+            }
+            document.bgColor = document.fcolores.colorin[i].value;
+        }
+
+        function suma() {
+            a = document.getElementById("a").value;
+            b = document.getElementById('b').value;
+            alert(a);
+            //document.write(parseInt(a) + parseInt(b));
+            document.getElementById("resultado").innerHTML = parseInt(a) + parseInt(b);
+
+        }
+
+    </script>
+
+</body>
+
+</html>
